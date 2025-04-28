@@ -10,7 +10,7 @@ function Login() {
             <img src="./images/logo.jpg" alt="logo" className="logo" />
             
           </div>
-          <p>Please login to your account</p>
+          <p>Login To Get Started</p>
           <input type="email" placeholder="Email address" className="input-field" />
           <input type="password" placeholder="Password" className="input-field" />
           <button className="btn btn-primary">Sign in</button>
