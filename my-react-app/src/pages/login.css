@@ -1,0 +1,149 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: grey;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit; 
+  }
+  
+  .gradient-form {
+    height: 100%; 
+    width: 100vw; 
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(233, 230, 230);
+  }
+  
+  .card-container {
+    display: flex;
+    flex: 1; 
+    height: 90%; 
+    width: 100%; 
+    max-width: 95%; 
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+   
+  }
+  
+  .login-left, .login-right {
+    flex: 1; 
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .login-left {
+    background-color: #fff;
+  }
+  
+  .login-right {
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    color: white;
+  }
+  
+  .logo-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  height: 80%;
+  margin: 0; 
+}
+  
+  .logo {
+    width: 200px;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #0a0a0a;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    color: white;
+  }
+  
+  .btn-danger {
+    background: white;
+    color: black;
+    border:3px solid  #b44593;
+    
+     margin-top: 5px;
+  }
+  
+  .forgot-password {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .signup-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .login-right h4, .login-right p {
+    color: #ffffff;
+  }
+  
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh;
+    }
+    .card-container {
+      flex: 1;
+      height: 90%;
+      width: 100%; /* ✅ full width */
+      max-width: 95%; 
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .login-right {
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+  }
