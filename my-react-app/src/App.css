@@ -1,10 +1,4 @@
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa;
+a {
+  color: rgb(75, 75, 219);
+  text-decoration: underline;
 }
