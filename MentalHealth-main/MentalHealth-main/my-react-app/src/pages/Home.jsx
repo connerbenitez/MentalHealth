@@ -1,4 +1,5 @@
 import NavBar from "../components/NavBar";
+<<<<<<< HEAD:MentalHealth-main/MentalHealth-main/my-react-app/src/pages/Home.jsx
 import SleepSlider from "../components/sleepslider";
 import ActivityLevelSlider from "../components/activityslider";
 import StressLevelSlider from "../components/stressslider";
@@ -24,3 +25,15 @@ export default function Home() {
     </>
   );
 }
+=======
+
+export default function Home() {
+  return <>
+
+    <NavBar/>
+    <h1>Todo: Homepage</h1>
+  
+  </>
+
+}
+>>>>>>> 726a559d22a63a243f5af9f21620f1a9f5963be8:my-react-app/src/pages/Home.jsx
