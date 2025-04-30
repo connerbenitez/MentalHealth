@@ -1,7 +1,8 @@
 import React from 'react';
-import './login.css';
+import './Login.css';
 
-function Login() {
+export default function Login() {
+
   return (
     <div className="gradient-form">
       <div className="card-container">
@@ -29,5 +30,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
