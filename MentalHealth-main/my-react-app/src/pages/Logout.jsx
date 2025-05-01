@@ -4,7 +4,8 @@ import Login from "./Login";
 
 export default function Logout() {
 
-  //on logout: delete the session id token, then render the login page
+  //on logout: delete the auth token, then render the login page
 
+  localStorage.removeItem('authToken'); 
   return <Login/>
 }
