@@ -3,7 +3,7 @@ import SleepSlider from "../components/sleepslider";
 import ActivityLevelSlider from "../components/activityslider";
 import StressLevelSlider from "../components/stressslider";
 import CaloricIntakeSlider from "../components/calorieslider";
-
+import DailyEntry from "../components/dailyentry";
 export default function Home() {
 
   // get user name from local storage (for now), later change this to get it from database
@@ -19,10 +19,11 @@ export default function Home() {
       <div className="dailyentry">
         <div className="dailyentry">
           <h2>Daily Entry</h2>
-          <SleepSlider />
+          <DailyEntry />
+          {/* <SleepSlider />
           <ActivityLevelSlider/>
           <StressLevelSlider />
-          <CaloricIntakeSlider />
+          <CaloricIntakeSlider /> */}
 
 
         </div>

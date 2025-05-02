@@ -9,17 +9,17 @@ const SleepSlider = () => {
   };
 
   return (
-    <div className="sleep">
-      <h2 className="sleepH2">How many hours did you sleep?</h2>
+    <div className="sleep-Container">
+      <h2 className="sleep-Heading">How many hours did you sleep?</h2>
       <input
         type="range"
         min="1"
         max="13"
         value={hours}
         onChange={handleChange}
-        className="w-full"
+        className="sleep-slider"
       />
-      <p className="sleepP">Hours slept: <strong>{hours === 13 ? '12+' : hours}</strong></p>
+      <p className="sleep-label">Hours slept: <strong>{hours === 13 ? '12+' : hours}</strong></p>
     </div>
   );
 };

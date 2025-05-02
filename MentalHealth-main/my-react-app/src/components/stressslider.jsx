@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const StressLevelSlider = () => {
-  const [stress, setStress] = useState(5);
-
-  return (
-    <div className="Stress">
-      <h2 className="StessH2">Stress Level (1–10)</h2>
-      <input
-        type="range"
-        min="1"
-        max="10"
-        value={stress}
-        onChange={(e) => setStress(Number(e.target.value))}
-        className="slider"
-      />
-      <p className="StessP">Stress level: <strong>{stress}</strong></p>
-    </div>
-  );
-};
+const StressLevelSlider = ({ value, setValue }) => (
+  <div className="stress-container">
+    <h2 className="stress-heading">Stress Level (1–10)</h2>
+    <input
+      type="range"
+      min="1"
+      max="10"
+      value={value}
+      onChange={(e) => setValue(Number(e.target.value))}
+      className="slider"
+    />
+    <p className="stress-label">
+      Stress level: <strong>{value}</strong>
+    </p>
+  </div>
+);
 
 export default StressLevelSlider;
