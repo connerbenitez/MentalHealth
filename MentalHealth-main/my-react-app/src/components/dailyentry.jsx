@@ -16,7 +16,7 @@ const DailyEntry = () => {
     mood: 'happy',
   });
 
-  const [submittedData, setSubmittedData] = useState(null); // <-- new state
+  const [submittedData, setSubmittedData] = useState(null);
 
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,7 +36,7 @@ const DailyEntry = () => {
       stressLevel,
     };
     console.log('📝 Daily Entry:', fullEntry);
-    setSubmittedData(fullEntry); // <-- save to state
+    setSubmittedData(fullEntry); 
     alert('Data submitted! Check console for details.');
   };
 

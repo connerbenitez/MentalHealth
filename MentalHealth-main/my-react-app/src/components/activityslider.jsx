@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-
-const ActivityLevelSlider = () => {
-  const [activity, setActivity] = useState(3);
+const ActivityLevelSlider = ({ value, setValue }) => {
   const activityLabels = ['Very Low', 'Low', 'Moderate', 'High', 'Very High'];
 
   return (
@@ -12,15 +10,16 @@ const ActivityLevelSlider = () => {
         type="range"
         min="1"
         max="5"
-        value={activity}
-        onChange={(e) => setActivity(Number(e.target.value))}
+        value={value}
+        onChange={(e) => setValue(Number(e.target.value))}
         className="activity-slider"
       />
       <p className="activity-label">
-        Activity level: <strong>{activityLabels[activity - 1]}</strong>
+        Activity level: <strong>{activityLabels[value - 1]}</strong>
       </p>
     </div>
   );
 };
 
 export default ActivityLevelSlider;
+

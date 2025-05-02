@@ -1,27 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SleepSlider = () => {
-  const [hours, setHours] = useState(8);
-
-  const handleChange = (event) => {
-    const value = parseInt(event.target.value, 10);
-    setHours(value);
-  };
-
-  return (
-    <div className="sleep">
-      <h2 className="sleepH2">How many hours did you sleep?</h2>
-      <input
-        type="range"
-        min="1"
-        max="13"
-        value={hours}
-        onChange={handleChange}
-        className="w-full"
-      />
-      <p className="sleepP">Hours slept: <strong>{hours === 13 ? '12+' : hours}</strong></p>
-    </div>
-  );
-};
+const SleepSlider = ({ value, setValue }) => (
+  <div className="sleep-container">
+    <h2 className="sleep-heading">How many hours did you sleep?</h2>
+    <input
+      type="range"
+      min="1"
+      max="13"
+      value={value}
+      onChange={(e) => setValue(Number(e.target.value))}
+      className="w-full"
+    />
+    <p className="sleep-label">
+      Hours slept: <strong>{value === 13 ? '12+' : value}</strong>
+    </p>
+  </div>
+);
 
 export default SleepSlider;

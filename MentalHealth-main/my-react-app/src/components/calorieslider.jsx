@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const CaloricIntakeSlider = () => {
-  const [calories, setCalories] = useState(2000);
-
-  return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-2">Caloric Intake</h2>
-      <input
-        type="range"
-        min="1000"
-        max="4000"
-        step="100"
-        value={calories}
-        onChange={(e) => setCalories(Number(e.target.value))}
-        className="w-full"
-      />
-      <p className="mt-2 text-lg">Calories: <strong>{calories}</strong> kcal</p>
-    </div>
-  );
-};
+const CaloricIntakeSlider = ({ value, setValue }) => (
+  <div className="caloric-container p-4">
+    <h2 className="text-xl font-bold mb-2">Caloric Intake</h2>
+    <input
+      type="range"
+      min="1000"
+      max="4000"
+      step="100"
+      value={value}
+      onChange={(e) => setValue(Number(e.target.value))}
+      className="w-full"
+    />
+    <p className="mt-2 text-lg">Calories: <strong>{value}</strong> kcal</p>
+  </div>
+);
 
 export default CaloricIntakeSlider;
