@@ -23,7 +23,7 @@ export default function NavBar() {
         <li className="nav-item"><a onClick={goToHomepage}>Home</a></li>
         <li className="nav-item"><a onClick={goToView}>View Entries</a></li>
         <li className="nav-item"><a onClick={goToAdd}>Add an Entry</a></li>
-        <li className="nav-item"><a onClick={goLogout}>Logout</a></li>
+        <li className="nav-item" id="logout"><a onClick={goLogout}>Logout</a></li>
       </ul>
     </nav>
   );

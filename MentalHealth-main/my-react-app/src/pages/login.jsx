@@ -37,37 +37,43 @@ export default function Login() {
 
   return (
     <>
-      <h1>Mental Health App</h1>
+      <div className="Page">
+        <h1>Mental Health App</h1>
 
-      <form
-        className="login"
-        onSubmit={(e) => {
-          e.preventDefault();
-          verifyLogin();
-        }}
-      >
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="Enter your email..."
-          autoComplete="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Enter password..."
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <button type="submit">Login</button>
-      </form>
+        <form
+          className="login"
+          onSubmit={(e) => {
+            e.preventDefault();
+            verifyLogin();
+          }}
+        >
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email..."
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter password..."
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+          <button className="login-button" type="submit">
+            Login
+          </button>
+        </form>
 
-      <a onClick={createAccount}>Create Account</a>
+        <button className="login-button" onClick={createAccount}>
+          Create Account
+        </button>
+      </div>
     </>
   );
 

@@ -1,11 +1,8 @@
-import { Navigate, useNavigate } from "react-router-dom";
-import Login from "./Login";
-
+import { Navigate } from "react-router-dom";
 
 export default function Logout() {
-
   //on logout: delete the auth token, then render the login page
 
-  localStorage.removeItem('authToken'); 
-  return <Login/>
+  localStorage.removeItem("authToken");
+  return <Navigate to="/" replace />;
 }

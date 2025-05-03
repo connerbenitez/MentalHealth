@@ -1,4 +1,28 @@
-a {
-  color: rgb(75, 75, 219);
-  text-decoration: underline;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #FC9DA0;
+  background-color: #6937a5;
+}
+
+.login>label,
+.login>input {
+  display: flex;
+  flex-direction: column;
+}
+
+.login>input {
+  margin-bottom: 10px;
+}
+
+.login-button {
+  width: 110px;
+  margin-bottom: 10px;
+}
+
+button {
+  border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #FC9DA0;
+  padding: 5px 7px;
+  background-color: #38185e;
 }
