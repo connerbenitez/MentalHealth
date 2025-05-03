@@ -16,10 +16,23 @@ const DailyEntry = () => {
     mood: 'happy',
   });
 
-  const [submittedData, setSubmittedData] = useState(null);
+  const [submittedData, setSubmittedData] = useState(null); 
 
   const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === 'date') {
+      const today = new Date().toISOString().split('T')[0];
+      try {
+        const storedEntry = JSON.parse(localStorage.getItem('daily'));
+        if (storedEntry && storedEntry.date === value) {
+          alert('You have already submitted an entry for this date.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
   };
 
   const handleInitialSubmit = (event) => {
@@ -35,8 +48,9 @@ const DailyEntry = () => {
       sleepHours,
       stressLevel,
     };
-    console.log('📝 Daily Entry:', fullEntry);
+    console.log('Daily Entry:', fullEntry);
     setSubmittedData(fullEntry); 
+    localStorage.setItem('daily', JSON.stringify(fullEntry)); 
     alert('Data submitted! Check console for details.');
   };
 
