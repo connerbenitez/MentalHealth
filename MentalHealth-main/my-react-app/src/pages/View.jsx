@@ -96,7 +96,8 @@ export default function View() {
     <h1>Welcome {user.name}</h1>
 
     {/* Entry for today */}
-    <h1>Todays Entry</h1>
+    <h2>Todays Entry</h2>
+    <div className="todays-entry-container">
     <h3>{formattedDate}</h3>
     {todaysEntry ? (
       <>
@@ -109,6 +110,7 @@ export default function View() {
     ) : (
       <p>No entry found for today.</p>
     )}
+    </div>
 
     {/* Entires for the past weeks */}
     <h2>Past Week's Entries</h2>
