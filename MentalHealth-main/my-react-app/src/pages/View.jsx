@@ -11,8 +11,8 @@ function MoodChart({ data }) {
       <ResponsiveContainer width="95%" height={300}>
         <BarChart data={data}>
           <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="date" />
-          <YAxis />
+          <XAxis dataKey="date" tick={{ fill: "#FC9DA0", dy: 10 }}/>
+          <YAxis ticks={[0, 1, 2, 3]} tick={{ fill: "#FC9DA0" }}/>
           <Tooltip />
           <Bar dataKey="mood" fill="#8884d8" />
         </BarChart>
@@ -29,10 +29,10 @@ function Chart({ title, data, dataKey }) {
       <ResponsiveContainer width="95%" height={300}>
         <LineChart data={data}>
           <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="date" />
-          <YAxis />
+          <XAxis dataKey="date" tick={{ fill: "#FC9DA0", dy: 10 }}/>
+          <YAxis tick={{ fill: "#FC9DA0" }}/>
           <Tooltip />
-          <Line type="monotone" dataKey={dataKey} stroke="#8884d8" dot />
+          <Line type="monotone" dataKey={dataKey} stroke="#8884d8" strokeWidth={3} dot />
         </LineChart>
       </ResponsiveContainer>
     </div>
