@@ -6,7 +6,7 @@ import CaloricIntakeSlider from "../components/calorieslider";
 import DailyEntry from "../components/dailyentry";
 export default function Home() {
 
-  // get user name from local storage (for now), later change this to get it from database
+  // get user name from local storage: Find the email of the logged-in user, find the 'users' entry for that email, then get the name
   const loggedInUserEmail = JSON.parse(localStorage.getItem("authToken")).email;
   const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
   const user = storedUsers.find((u) => u.email === loggedInUserEmail);

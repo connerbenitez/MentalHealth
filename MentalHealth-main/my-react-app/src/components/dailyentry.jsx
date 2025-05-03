@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import ActivityLevelSlider from './activityslider';
-import CaloricIntakeSlider from './calorieslider';
-import SleepSlider from './sleepslider';
-import StressLevelSlider from './stressslider';
+import React, { useState } from "react";
+import ActivityLevelSlider from "./activityslider";
+import CaloricIntakeSlider from "./calorieslider";
+import SleepSlider from "./sleepslider";
+import StressLevelSlider from "./stressslider";
 
 const DailyEntry = () => {
+  // isSubmitted keeps track of first part of daily entry (Date, Mood)
   const [isSubmitted, setIsSubmitted] = useState(false);
+
   const [activityLevel, setActivityLevel] = useState(3);
   const [caloricIntake, setCaloricIntake] = useState(2500);
   const [sleepHours, setSleepHours] = useState(7);
   const [stressLevel, setStressLevel] = useState(5);
 
   const [formData, setFormData] = useState({
-    date: '',
-    mood: 'happy',
+    date: "",
+    mood: "happy",
   });
 
   const [submittedData, setSubmittedData] = useState(null);
@@ -35,9 +37,26 @@ const DailyEntry = () => {
       sleepHours,
       stressLevel,
     };
-    console.log('📝 Daily Entry:', fullEntry);
-    setSubmittedData(fullEntry); 
-    alert('Data submitted! Check console for details.');
+    console.log("📝 Daily Entry:", fullEntry);
+    setSubmittedData(fullEntry);
+    alert("Data submitted!");
+    console.log(submittedData);
+
+    // find the user and already-saved entries
+    const loggedInUserEmail = JSON.parse(localStorage.getItem("authToken")).email;
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    const user = storedUsers.find((u) => u.email === loggedInUserEmail);
+    
+    const existingEntries = user.entries || [];
+
+    // Use the date as the key and add a new entry
+    existingEntries[formData.date] = fullEntry;
+    
+    // save the entries array back to the user
+    user.entries = existingEntries;
+    localStorage.setItem("users", JSON.stringify(storedUsers));
+    
+    // note: entries are stored in this format: 'entries': {'date1': {entry}, 'date2': {entry}}
   };
 
   return (
@@ -46,7 +65,9 @@ const DailyEntry = () => {
         <div className="daily-entry-form">
           <h2 className="form-heading">Daily Entry</h2>
           <form onSubmit={handleInitialSubmit}>
-            <label htmlFor="date" className="form-label">Date:</label>
+            <label htmlFor="date" className="form-label">
+              Date:
+            </label>
             <input
               type="date"
               id="date"
@@ -57,7 +78,9 @@ const DailyEntry = () => {
               required
             />
             <br />
-            <label htmlFor="mood" className="form-label">Mood:</label>
+            <label htmlFor="mood" className="form-label">
+              Mood:
+            </label>
             <select
               id="mood"
               name="mood"
@@ -70,19 +93,32 @@ const DailyEntry = () => {
               <option value="sad">Sad</option>
             </select>
             <br />
-            <button type="submit" className="submit-btn">Next</button>
+            <button type="submit" className="submit-btn">
+              Next
+            </button>
           </form>
         </div>
       ) : (
         <div className="sliders-container">
           <h2 className="sliders-heading">Your Daily Stats</h2>
-          <ActivityLevelSlider value={activityLevel} setValue={setActivityLevel} />
-          <CaloricIntakeSlider value={caloricIntake} setValue={setCaloricIntake} />
+          <ActivityLevelSlider
+            value={activityLevel}
+            setValue={setActivityLevel}
+          />
+          <CaloricIntakeSlider
+            value={caloricIntake}
+            setValue={setCaloricIntake}
+          />
           <SleepSlider value={sleepHours} setValue={setSleepHours} />
           <StressLevelSlider value={stressLevel} setValue={setStressLevel} />
-          <button onClick={handleFinalSubmit} className="submit-btn mt-4">Submit Full Entry</button>
+          <button onClick={handleFinalSubmit} className="submit-btn mt-4">
+            Submit Full Entry
+          </button>
           <p>
-            data: {submittedData ? JSON.stringify(submittedData, null, 2) : 'No data submitted yet.'}
+            data:{" "}
+            {submittedData
+              ? JSON.stringify(submittedData, null, 2)
+              : "No data submitted yet."}
           </p>
         </div>
       )}

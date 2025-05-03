@@ -15,8 +15,13 @@ export default function View() {
   // get user data from local storage
   const allData = JSON.parse(localStorage.getItem("data") || "[]");
   const todaysData = allData.find((u) => u.date === formattedDate);
+  // get Entry data from localStorage
+  const loggedInUserEmail = JSON.parse(localStorage.getItem("authToken")).email;
+  const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+  const user = storedUsers.find((u) => u.email === loggedInUserEmail);
 
-  return <>
+  // note: entries are stored in this format: date1': {entry}, 'date2': {entry}
+  const entries = user.entries;
 
     <NavBar/>
     <h1>Welcome {user.name}</h1>
@@ -30,4 +35,13 @@ export default function View() {
   
   </>
 
+  console.log(entries);
+
+  return (
+    <>
+      <NavBar />
+    <h1>Your Entries</h1>
+    <p>{JSON.stringify(entries)}</p>
+    </>
+  );
 }

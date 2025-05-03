@@ -9,7 +9,14 @@ export default function CreateAccount() {
   const [password2, setPassword2] = useState("");
 
 
+  // this function runs when the "Create Account" button is hit
   const verifyAndCreate = () => {
+
+    // three conditions that fail the login
+    // 1: Field is empty
+    // 2: passwords do not match
+    // 3: User with that email already exists
+
     if (!email || !password || !password2 || !name) {
       alert("All fields are required!");
       return;
@@ -20,11 +27,17 @@ export default function CreateAccount() {
       return;
     }
 
-    // connect this to MongoDB for the Login API later 
-    // for now it uses local storage
+    // Users JSON is stored in local storage
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-    existingUsers.push({ name, email, password });
 
+    // check if email already exists
+    if (existingUsers.some(user => user.email === email)) {
+      alert("An account with this email already exists.");
+      return;
+    }
+
+    // create new user with name, email, password, and entries (will be an array of JSONs, starts empty)
+    existingUsers.push({ name, email, password, entries: {} });
     
     localStorage.setItem("users", JSON.stringify(existingUsers));
     
