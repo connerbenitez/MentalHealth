@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
-
+import "./View.css";
 
 // Mood chart with a bar chart
 function MoodChart({ data }) {
@@ -112,12 +112,12 @@ export default function View() {
 
     {/* Entires for the past weeks */}
     <h2>Past Week's Entries</h2>
-      <ul>
+      <ul className="past-week-container">
         {pastWeekDates.map((formattedPastDate) => {
           const pastEntry = entries[formattedPastDate]; // Get entry for the date
 
           return (
-            <li key={formattedPastDate}>
+            <li key={formattedPastDate} className="past-week-item">
               <h3>{formattedPastDate}</h3>
               {pastEntry ? (
                 <>
@@ -139,11 +139,11 @@ export default function View() {
       {weekOffset > 0 && (
         <button onClick={() => setWeekOffset(weekOffset - 1)}>Display Next Week</button>
       )}
-
+      
+  {/* Code to display all entries in raw format (for debugging purposes)
   <h2>All Entries (Raw Data)</h2>
-  <pre>{JSON.stringify(entries, null, 2)}</pre>
+  <pre>{JSON.stringify(entries, null, 2)}</pre> */}
 
-      <h1>Welcome {user.name}</h1>
       <h2>Daily Tracking Charts</h2>
 
       {/* Mood BarChart */}
