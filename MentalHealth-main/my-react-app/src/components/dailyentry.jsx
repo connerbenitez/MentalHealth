@@ -60,7 +60,7 @@ const DailyEntry = () => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
     const user = storedUsers.find((u) => u.email === loggedInUserEmail);
     
-    const existingEntries = user.entries || [];
+    const existingEntries = user.entries || {};
 
     // Use the date as the key and add a new entry
     existingEntries[formData.date] = fullEntry;
@@ -68,7 +68,7 @@ const DailyEntry = () => {
     // save the entries array back to the user
     user.entries = existingEntries;
     localStorage.setItem("users", JSON.stringify(storedUsers));
-    
+
     // note: entries are stored in this format: 'entries': {'date1': {entry}, 'date2': {entry}}
   };
 
