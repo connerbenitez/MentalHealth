@@ -3,6 +3,7 @@ import ActivityLevelSlider from "./activityslider";
 import CaloricIntakeSlider from "./calorieslider";
 import SleepSlider from "./sleepslider";
 import StressLevelSlider from "./stressslider";
+import "./dailyentry.css";
 
 const DailyEntry = () => {
   // isSubmitted keeps track of first part of daily entry (Date, Mood)
@@ -15,7 +16,7 @@ const DailyEntry = () => {
 
   const [formData, setFormData] = useState({
     date: "",
-    mood: "happy",
+    mood: "neutral"
   });
 
   const [submittedData, setSubmittedData] = useState(null); 

@@ -1,0 +1,25 @@
+/* Style for input boxes */
+.form-input {
+    background-color: #38185e; 
+    border: 1px solid #38185e; 
+    border-radius: 5px; 
+    color: #FC9DA0; 
+    font-size: 16px; 
+    margin: 3px;
+  }
+  
+  /* Style for input boxes on focus */
+  .form-input:focus {
+    background-color: #38185e; 
+    border-color: #FC9DA0;
+    outline: none; 
+  }
+  
+  /* Style for select dropdown */
+  select.form-input {
+    background-color: #38185e;
+    border: 1px solid #38185e;
+    border-radius: 5px;
+    color: #FC9DA0;
+    font-size: 16px;
+  }
