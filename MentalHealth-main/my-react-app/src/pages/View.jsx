@@ -44,7 +44,7 @@ function convertMoodToNumeric(mood) {
   switch (mood) {
     case "happy":
       return 3;
-    case "okay":
+    case "neutral":
       return 2;
     case "sad":
       return 1;

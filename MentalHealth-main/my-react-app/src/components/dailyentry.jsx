@@ -90,6 +90,7 @@ const DailyEntry = () => {
               value={formData.date}
               onChange={handleFormChange}
               required
+              max={new Date().toISOString().split("T")[0]} // Prevent future dates
             />
             <br />
             <label htmlFor="mood" className="form-label">
