@@ -4,22 +4,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContai
 import "./View.css";
 
 // Mood chart with a bar chart
-function MoodChart({ data }) {
-  return (
-    <div style={{ marginBottom: 40 }}>
-      <h3>Mood</h3>
-      <ResponsiveContainer width="95%" height={300}>
-        <BarChart data={data}>
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="date" tick={{ fill: "#FC9DA0", dy: 10 }}/>
-          <YAxis ticks={[0, 1, 2, 3]} tick={{ fill: "#FC9DA0" }}/>
-          <Tooltip />
-          <Bar dataKey="mood" fill="#8884d8" />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  );
-}
+
 
 // Line charts for other categories
 function Chart({ title, data, dataKey }) {
@@ -39,7 +24,7 @@ function Chart({ title, data, dataKey }) {
   );
 }
 
-// Convert mood to a numeric value (this is an example mapping)
+
 function convertMoodToNumeric(mood) {
   switch (mood) {
     case "happy":
@@ -49,7 +34,7 @@ function convertMoodToNumeric(mood) {
     case "sad":
       return 1;
     default:
-      return 0; // in case there's an unexpected value
+      return 0; 
   }
 }
 
@@ -83,11 +68,8 @@ export default function View() {
   // Convert entries object to array sorted by date
   const entryArray = Object.values(entries).sort((a, b) => new Date(a.date) - new Date(b.date));
 
-  // Convert mood to numeric scale (optional based on your values)
-  const moodNumeric = entryArray.map(entry => ({
-    ...entry,
-    mood: convertMoodToNumeric(entry.mood),
-  }));
+  
+ 
 
 
   return (
@@ -149,7 +131,7 @@ export default function View() {
       <h2>Daily Tracking Charts</h2>
 
       {/* Mood BarChart */}
-      <MoodChart data={moodNumeric} />
+     
       
       {/* Other LineCharts */}
       <Chart title="Activity Level" data={entryArray} dataKey="activityLevel" />

@@ -128,12 +128,7 @@ const DailyEntry = () => {
           <button onClick={handleFinalSubmit} className="submit-btn mt-4">
             Submit Full Entry
           </button>
-          <p>
-            data:{" "}
-            {submittedData
-              ? JSON.stringify(submittedData, null, 2)
-              : "No data submitted yet."}
-          </p>
+          
         </div>
       )}
     </div>
