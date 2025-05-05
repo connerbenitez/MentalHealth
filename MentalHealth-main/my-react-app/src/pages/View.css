@@ -1,18 +1,20 @@
 /* Flexbox container for the 7 days */
 .past-week-container {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: space-between; /* Space between items */
-    gap: 10px; /* Add spacing between items */
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    flex-wrap: nowrap; /* Change this to 'wrap' to make the week items overflow onto a new line */
+    justify-content: space-between;
+    gap: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling */
     padding: 10px;
     list-style-type: none;
+    scrollbar-width: thin;
+
 }
   
-  /* Style for each day (list item) */
+/* Style for each day (list item) */
 .past-week-item {
     flex: 1; /* Make all items equal width */
-    min-width: 150px; /* Ensure a minimum width for each item */
+    min-width: 150px;
     border: 1px solid #FC9DA0;
     border-radius: 5px;
     padding: 10px;

@@ -1,8 +1,8 @@
 import React from 'react';
 
 const CaloricIntakeSlider = ({ value, setValue }) => (
-  <div className="caloric-container p-4">
-    <h2 className="text-xl font-bold mb-2">Caloric Intake</h2>
+  <div className="container p-4">
+    <h2 className="heading">Caloric Intake</h2>
     <input
       type="range"
       min="0"
@@ -10,9 +10,9 @@ const CaloricIntakeSlider = ({ value, setValue }) => (
       step="100"
       value={value}
       onChange={(e) => setValue(Number(e.target.value))}
-      className="w-full"
+      className="slider"
     />
-    <p className="mt-2 text-lg">Calories: <strong>{value}</strong> kcal</p>
+    <p className="label">Calories: <strong>{value}</strong> kcal</p>
   </div>
 );
 
