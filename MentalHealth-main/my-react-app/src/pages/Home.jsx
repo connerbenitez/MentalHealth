@@ -8,8 +8,8 @@ export default function Home() {
   const user = storedUsers.find((u) => u.email === loggedInUserEmail);
   return (
     <>
+      <NavBar />
       <div className="Page">
-        <NavBar />
         <h1>Welcome {user.name}</h1>
         <h1>Mental Health Tracker</h1>
         <CheckDaily />
