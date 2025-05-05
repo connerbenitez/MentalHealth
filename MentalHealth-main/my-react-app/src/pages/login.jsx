@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-
+import "./login.css";
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -38,7 +38,8 @@ export default function Login() {
   return (
     <>
       <div className="Page">
-        <h1>Mental Health App</h1>
+        <h1>Welcome</h1>
+        <h3>Login to begin</h3>
 
         <form
           className="login"
@@ -68,11 +69,10 @@ export default function Login() {
           <button className="login-button" type="submit">
             Login
           </button>
+          <a classname = "anchor" onClick={createAccount} role="button">
+            Create Account
+          </a>
         </form>
-
-        <button className="login-button" onClick={createAccount}>
-          Create Account
-        </button>
       </div>
     </>
   );
