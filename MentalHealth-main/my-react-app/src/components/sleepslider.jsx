@@ -5,14 +5,14 @@ const SleepSlider = ({ value, setValue }) => (
     <h2 className="heading">How many hours did you sleep?</h2>
     <input
       type="range"
-      min="1"
-      max="13"
+      min="0"
+      max="14"
       value={value}
       onChange={(e) => setValue(Number(e.target.value))}
       className="slider"
     />
     <p className="label">
-      Hours slept: <strong>{value === 13 ? '12+' : value}</strong>
+      Hours slept: <strong>{value === 14 ? '13+' : value}</strong>
     </p>
   </div>
 );

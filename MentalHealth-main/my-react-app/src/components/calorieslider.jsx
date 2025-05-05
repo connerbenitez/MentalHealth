@@ -5,8 +5,8 @@ const CaloricIntakeSlider = ({ value, setValue }) => (
     <h2 className="heading">Caloric Intake</h2>
     <input
       type="range"
-      min="1000"
-      max="4000"
+      min="0"
+      max="5000"
       step="100"
       value={value}
       onChange={(e) => setValue(Number(e.target.value))}
