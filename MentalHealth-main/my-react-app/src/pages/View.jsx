@@ -13,24 +13,6 @@ import {
 } from "recharts";
 import "./View.css";
 
-// Mood chart with a bar chart
-function MoodChart({ data }) {
-  return (
-    <div style={{ marginBottom: 40 }}>
-      <h3>Mood</h3>
-      <ResponsiveContainer width="95%" height={300}>
-        <BarChart data={data}>
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="date" tick={{ fill: "#FC9DA0", dy: 10 }} />
-          <YAxis ticks={[0, 1, 2, 3]} tick={{ fill: "#FC9DA0" }} />
-          <Tooltip />
-          <Bar dataKey="mood" fill="#8884d8" />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  );
-}
-
 // Line charts for other categories
 function Chart({ title, data, dataKey }) {
   return (
@@ -55,17 +37,17 @@ function Chart({ title, data, dataKey }) {
   );
 }
 
-// Convert mood to a numeric value (this is an example mapping)
+
 function convertMoodToNumeric(mood) {
   switch (mood) {
     case "happy":
       return 3;
-    case "okay":
+    case "neutral":
       return 2;
     case "sad":
       return 1;
     default:
-      return 0; // in case there's an unexpected value
+      return 0; 
   }
 }
 
@@ -100,87 +82,74 @@ export default function View() {
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
-  // Convert mood to numeric scale (optional based on your values)
-  const moodNumeric = entryArray.map((entry) => ({
-    ...entry,
-    mood: convertMoodToNumeric(entry.mood),
-  }));
-
   return (
-    <>
-      <NavBar />
-      <div className="Page">
-        <h1>Welcome {user.name}</h1>
+  <>
+    <NavBar/>
+    <div className="Page">
+    <h1>Welcome {user.name}</h1>
 
-        {/* Entry for today */}
-        <h2>Todays Entry</h2>
-        <div className="todays-entry-container">
-          <h3>{formattedDate}</h3>
-          {todaysEntry ? (
-            <>
-              <p>Mood: {todaysEntry.mood}</p>
-              <p>Activity Level: {todaysEntry.activityLevel}</p>
-              <p>Caloric Intake: {todaysEntry.caloricIntake}</p>
-              <p>Hours of Sleep: {todaysEntry.sleepHours}</p>
-              <p>Stress Level: {todaysEntry.stressLevel}</p>
-            </>
-          ) : (
-            <p>No entry found for today.</p>
-          )}
-        </div>
+    {/* Entry for today */}
+    <h2>Todays Entry</h2>
+    <div className="todays-entry-container">
+    <h3>{formattedDate}</h3>
+    {todaysEntry ? (
+      <>
+        <p>Mood: {todaysEntry.mood}</p>
+        <p>Activity Level: {todaysEntry.activityLevel}</p>
+        <p>Caloric Intake: {todaysEntry.caloricIntake}</p>
+        <p>Hours of Sleep: {todaysEntry.sleepHours}</p>
+        <p>Stress Level: {todaysEntry.stressLevel}</p>
+      </>
+    ) : (
+      <p>No entry found for today.</p>
+    )}
+    </div>
 
-        {/* Entires for the past weeks */}
-        <h2>Past Week's Entries</h2>
-        <ul className="past-week-container">
-          {pastWeekDates.map((formattedPastDate) => {
-            const pastEntry = entries[formattedPastDate]; // Get entry for the date
+    {/* Entires for the past weeks */}
+    <h2>Past Week's Entries</h2>
+      <ul className="past-week-container">
+        {pastWeekDates.map((formattedPastDate) => {
+          const pastEntry = entries[formattedPastDate]; // Get entry for the date
 
-            return (
-              <li key={formattedPastDate} className="past-week-item">
-                <h3>{formattedPastDate}</h3>
-                {pastEntry ? (
-                  <>
-                    <p>Mood: {pastEntry.mood}</p>
-                    <p>Activity Level: {pastEntry.activityLevel}</p>
-                    <p>Caloric Intake: {pastEntry.caloricIntake}</p>
-                    <p>Hours of Sleep: {pastEntry.sleepHours}</p>
-                    <p>Stress Level: {pastEntry.stressLevel}</p>
-                  </>
-                ) : (
-                  <p>No entry for this day.</p>
-                )}
-              </li>
-            );
-          })}
-        </ul>
+          return (
+            <li key={formattedPastDate} className="past-week-item">
+              <h3>{formattedPastDate}</h3>
+              {pastEntry ? (
+                <>
+                  <p>Mood: {pastEntry.mood}</p>
+                  <p>Activity Level: {pastEntry.activityLevel}</p>
+                  <p>Caloric Intake: {pastEntry.caloricIntake}</p>
+                  <p>Hours of Sleep: {pastEntry.sleepHours}</p>
+                  <p>Stress Level: {pastEntry.stressLevel}</p>
+                </>
+              ) : (
+                <p>No entry for this day.</p>
+              )}
+            </li>
+          );
+        })}
+      </ul>
 
-        <button onClick={() => setWeekOffset(weekOffset + 1)}>
-          Display Previous Week
-        </button>
-        {weekOffset > 0 && (
-          <button onClick={() => setWeekOffset(weekOffset - 1)}>
-            Display Next Week
-          </button>
-        )}
+    <button onClick={() => setWeekOffset(weekOffset + 1)}>Display Previous Week</button>
+      {weekOffset > 0 && (
+        <button onClick={() => setWeekOffset(weekOffset - 1)}>Display Next Week</button>
+      )}
+      
+  {/* Code to display all entries in raw format (for debugging purposes)
+  <h2>All Entries (Raw Data)</h2>
+  <pre>{JSON.stringify(entries, null, 2)}</pre> */}
 
-        <h2>Daily Tracking Charts</h2>
+      <h2>Daily Tracking Charts</h2>
 
-        {/* Mood BarChart */}
-        <MoodChart data={moodNumeric} />
-
-        {/* Other LineCharts */}
-        <Chart
-          title="Activity Level"
-          data={entryArray}
-          dataKey="activityLevel"
-        />
-        <Chart
-          title="Caloric Intake"
-          data={entryArray}
-          dataKey="caloricIntake"
-        />
-        <Chart title="Hours of Sleep" data={entryArray} dataKey="sleepHours" />
-        <Chart title="Stress Level" data={entryArray} dataKey="stressLevel" />
+      {/* Mood BarChart */}
+     
+      
+      {/* Other LineCharts */}
+      <Chart title="Activity Level" data={entryArray} dataKey="activityLevel" />
+      <Chart title="Caloric Intake" data={entryArray} dataKey="caloricIntake" />
+      <Chart title="Hours of Sleep" data={entryArray} dataKey="sleepHours" />
+      <Chart title="Stress Level" data={entryArray} dataKey="stressLevel" />
+      
       </div>
     </>
   );

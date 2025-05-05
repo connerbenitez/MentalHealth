@@ -1,8 +1,8 @@
 import React from 'react';
 
 const StressLevelSlider = ({ value, setValue }) => (
-  <div className="stress-container">
-    <h2 className="stress-heading">Stress Level (1–10)</h2>
+  <div className="container">
+    <h2 className="heading">Stress Level (1–10)</h2>
     <input
       type="range"
       min="1"
@@ -11,7 +11,7 @@ const StressLevelSlider = ({ value, setValue }) => (
       onChange={(e) => setValue(Number(e.target.value))}
       className="slider"
     />
-    <p className="stress-label">
+    <p className="label">
       Stress level: <strong>{value}</strong>
     </p>
   </div>

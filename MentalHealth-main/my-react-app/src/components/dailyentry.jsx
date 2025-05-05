@@ -90,6 +90,7 @@ const DailyEntry = () => {
               value={formData.date}
               onChange={handleFormChange}
               required
+              max={new Date().toISOString().split("T")[0]} // Prevent future dates
             />
             <br />
             <label htmlFor="mood" className="form-label">
@@ -128,12 +129,7 @@ const DailyEntry = () => {
           <button onClick={handleFinalSubmit} className="submit-btn mt-4">
             Submit Full Entry
           </button>
-          <p>
-            data:{" "}
-            {submittedData
-              ? JSON.stringify(submittedData, null, 2)
-              : "No data submitted yet."}
-          </p>
+          
         </div>
       )}
     </div>
