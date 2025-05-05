@@ -48,6 +48,7 @@ export default function CreateAccount() {
 
   return (
     <>
+    <div className="Page">
       <h1>Create Your Account!</h1>
 
       <form className="login" onSubmit={(e) => { e.preventDefault(); verifyAndCreate(); }}>
@@ -91,6 +92,7 @@ export default function CreateAccount() {
           Create Account
         </button>
       </form>
+      </div>
     </>
   );
 
