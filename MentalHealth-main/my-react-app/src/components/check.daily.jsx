@@ -13,7 +13,7 @@ const CheckDaily = () => {
         <button
           type="button"
           className="submit-btn"
-          onClick={() => navigate('/add')}
+          onClick={() => navigate('/add', { state: { fromHome: true } })}
         >
           Go to Daily Entry
         </button>

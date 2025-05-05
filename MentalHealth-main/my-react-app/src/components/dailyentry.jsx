@@ -4,6 +4,7 @@ import CaloricIntakeSlider from "./calorieslider";
 import SleepSlider from "./sleepslider";
 import StressLevelSlider from "./stressslider";
 import "./dailyentry.css";
+import { useLocation } from 'react-router-dom';
 
 const DailyEntry = () => {
   // isSubmitted keeps track of first part of daily entry (Date, Mood)
@@ -14,8 +15,11 @@ const DailyEntry = () => {
   const [sleepHours, setSleepHours] = useState(7);
   const [stressLevel, setStressLevel] = useState(5);
 
+  const location = useLocation();
+  const isFromHome = location.state?.fromHome || false;
+
   const [formData, setFormData] = useState({
-    date: "",
+    date: isFromHome ? new Date().toISOString().split('T')[0] : '',
     mood: "neutral"
   });
 
