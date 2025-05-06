@@ -1,0 +1,39 @@
+.nav-bar {
+  background-color: #38185e;
+  padding: 15px 15px;
+  margin: 0;
+  position: fixed; /* makes the nav bar stay at the top even when you scroll down */
+  width: calc(100% - 30px);
+  z-index: 1; /* Higher Z-index makes sure the nav is on top of everything */
+}
+
+.nav-list {
+  display: inline-flex; 
+  list-style-type: none; 
+  margin: 0;
+  padding: 0; 
+  justify-content: space-around; 
+}
+
+.nav-item {
+  margin: 0 10px; 
+}
+
+#logout {
+  position: absolute;
+  right: 0;
+}
+
+.nav-item a {
+  color: rgb(251, 249, 250); 
+  text-decoration: none; 
+  font-size: 16px; 
+  padding: 8px 16px; 
+  border-radius: 4px; 
+  transition: background-color 0.3s ease; 
+}
+
+.nav-item a:hover {
+  background-color: #553d71; 
+  color: #fff; 
+}

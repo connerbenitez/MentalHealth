@@ -1,0 +1,22 @@
+<<<<<<< HEAD:MentalHealth-main/MentalHealth-main/my-react-app/src/TemplateApp.css
+<<<<<<<< HEAD:MentalHealth-main/MentalHealth-main/my-react-app/src/TemplateApp.css
+=======
+>>>>>>> 726a559d22a63a243f5af9f21620f1a9f5963be8:my-react-app/src/TemplateApp.css
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #404040;
+<<<<<<< HEAD:MentalHealth-main/MentalHealth-main/my-react-app/src/TemplateApp.css
+========
+a {
+  color: rgb(75, 75, 219);
+  text-decoration: underline;
+>>>>>>>> 726a559d22a63a243f5af9f21620f1a9f5963be8:my-react-app/src/App.css
+=======
+>>>>>>> 726a559d22a63a243f5af9f21620f1a9f5963be8:my-react-app/src/TemplateApp.css
+}
