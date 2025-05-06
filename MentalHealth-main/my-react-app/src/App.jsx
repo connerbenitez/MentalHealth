@@ -11,7 +11,7 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter basename="/MentalHealth/MentalHealth/MentalHealth-main/my-react-app">
+    <BrowserRouter basename="/MentalHealth/MentalHealth-main/my-react-app">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/create" element={<CreateAccount />} />
